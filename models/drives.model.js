@@ -1,19 +1,18 @@
 const mongoose = require('mongoose');
 
 const drivesSchema = mongoose.Schema({
-    originDate: Date,
-    originTime: Date,
+    originDateTime: String,
     originLongitude: Number,
     originLatitude: Number,
 
-    destinationDate: Date,
-    destinationTime: Date,
+    destinationDateTime: String,
     destinationLongitude: Number,
     destinationLatitude: Number,
 
     availableSeats: Number,
     VehicleNumber: String,
-    contactNumber: String
+    contactNumber: String,
+    username:String
 
 });
 

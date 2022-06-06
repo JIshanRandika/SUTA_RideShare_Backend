@@ -3,19 +3,18 @@ const Drive = require('../models/drives.model.js');
 //add a drive
 exports.addADrive = (req, res) => {
     const drive = new Drive({
-        originDate: req.body.originDate,
-        originTime: req.body.originTime,
+        originDateTime: req.body.originDateTime,
         originLongitude: req.body.originLongitude,
         originLatitude: req.body.originLatitude,
 
-        destinationDate: req.body.destinationDate,
-        destinationTime: req.body.destinationTime,
+        destinationDateTime: req.body.destinationDateTime,
         destinationLongitude: req.body.destinationLongitude,
         destinationLatitude: req.body.destinationLatitude,
 
         availableSeats: req.body.availableSeats,
         VehicleNumber: req.body.VehicleNumber,
-        contactNumber: req.body.contactNumber
+        contactNumber: req.body.contactNumber,
+        username: req.body.username
     });
     // Save a order in the MongoDB
     drive.save().then(data => {
@@ -27,3 +26,4 @@ exports.addADrive = (req, res) => {
         });
     });
 };
+
