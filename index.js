@@ -21,6 +21,8 @@ app.use("/api/logout", logoutRoutes);
 
 require('./routes/drives.router')(app);
 require('./routes/riderToDriverRequest.router')(app);
+require('./routes/updateUserToken.routes')(app);
+
 
 const port = process.env.PORT || 8080;
 app.listen(port, console.log(`Listening on port ${port}...`));
