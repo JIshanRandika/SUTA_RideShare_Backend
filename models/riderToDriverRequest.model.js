@@ -4,7 +4,8 @@ const riderToDriverRequestSchema = mongoose.Schema({
     riderEmail: String,
     driverEmail: String,
     neededSeats: Number,
-    originDateTime: String
+    originDateTime: String,
+    status: String
 
 
 });
