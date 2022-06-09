@@ -26,8 +26,12 @@ require('./routes/drives.router')(app);
 require('./routes/riderToDriverRequest.router')(app);
 require('./routes/updateUserToken.routes')(app);
 
+// let port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}.`);
+});
 
-const port = process.env.PORT || 8080;
-app.listen(port, console.log(`Listening on port ${port}...`));
+// app.listen(port, console.log(`Listening on port ${port}...`));
 
 
