@@ -12,7 +12,8 @@ const drivesSchema = mongoose.Schema({
     availableSeats: Number,
     VehicleNumber: String,
     contactNumber: String,
-    username:String
+    username:String,
+    email:String
 
 });
 
