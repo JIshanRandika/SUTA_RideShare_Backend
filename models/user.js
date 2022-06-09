@@ -5,9 +5,9 @@ const passwordComplexity = require("joi-password-complexity");
 
 const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
-	// lastName: { type: String, required: true },
 	email: { type: String, required: true },
 	password: { type: String, required: true },
+	deviseToken: { type: String, required: true },
 });
 
 userSchema.methods.generateAuthToken = function () {
@@ -25,6 +25,8 @@ const validate = (data) => {
 		name: Joi.string().required().label("Name"),
 		email: Joi.string().email().required().label("Email"),
 		password: passwordComplexity().required().label("Password"),
+		deviseToken: String
+
 	});
 	return schema.validate(data);
 };
