@@ -6,6 +6,8 @@ const connection = require("./db");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 const logoutRoutes = require("./routes/logout");
+const notification = require("./routes/notification");
+
 
 // database connection
 connection();
@@ -18,6 +20,7 @@ app.use(cors());
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/logout", logoutRoutes);
+app.use("/api/notification", notification);
 
 require('./routes/drives.router')(app);
 require('./routes/riderToDriverRequest.router')(app);
