@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const mongoose = require('mongoose');
 
 const connection = require("./db");
 const userRoutes = require("./routes/users");
@@ -13,6 +14,8 @@ const notification = require("./routes/notification");
 
 // database connection
 connection();
+
+mongoose.Promise = global.Promise;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
