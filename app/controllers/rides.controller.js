@@ -44,21 +44,20 @@ exports.rides = (req, res) => {
     });
 };
 
-// get your drives
-// exports.yourDrives =  (req, res) => {
-//     Drive.find({'email':req.body.email}).select(['username']).then(itemInfos => {
-//         res.status(200).json(itemInfos);
-//     }).catch(error => {
-//         // log on console
-//         console.log(error);
-//
-//         res.status(500).json({
-//             message: "Error!",
-//             error: error
-//         });
-//     });
-    // let itemList = await Drive.find({email: req.body.email}).select(['originDateTime', 'originLatitude', 'email']);
-    // JSON.stringify(itemList)
 
-    // return res.status(200).send(itemList);
-// };
+//get your rides
+exports.yourRides = (req, res) => {
+    Drive.find({'email':req.body.email}).select('-__v').then(itemInfos => {
+        res.status(200).json(itemInfos);
+    }).catch(error => {
+        // log on console
+        console.log(error);
+
+        res.status(500).json({
+            message: "Error!",
+            error: error
+        });
+    });
+};
+
+
