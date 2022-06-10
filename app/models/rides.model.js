@@ -12,7 +12,9 @@ const ridesSchema = mongoose.Schema({
     neededSeats: Number,
     contactNumber: String,
     username:String,
-    email:String
+    email:String,
+
+    userToken:String
 
 });
 
