@@ -7,11 +7,12 @@ exports.addARide = (req, res) => {
         originLongitude: req.body.originLongitude,
         originLatitude: req.body.originLatitude,
 
-        destinationDateTime: req.body.destinationDateTime,
+        // destinationDateTime: req.body.destinationDateTime,
         destinationLongitude: req.body.destinationLongitude,
         destinationLatitude: req.body.destinationLatitude,
 
-        neededSeats: req.body.availableSeats,
+
+        neededSeats: req.body.neededSeats,
         contactNumber: req.body.contactNumber,
         username: req.body.username,
         email: req.body.email

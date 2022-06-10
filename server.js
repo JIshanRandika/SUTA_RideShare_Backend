@@ -22,7 +22,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/notification", notification);
 
-require('./routes/drives.router')(app);
+require('./routes/drives.router')(app)
+require('./routes/rides.router')(app);
 require('./routes/riderToDriverRequest.router')(app);
 require('./routes/updateUserToken.routes')(app);
 

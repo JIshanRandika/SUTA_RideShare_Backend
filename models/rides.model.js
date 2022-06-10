@@ -5,7 +5,7 @@ const ridesSchema = mongoose.Schema({
     originLongitude: Number,
     originLatitude: Number,
 
-    destinationDateTime: String,
+    // destinationDateTime: String,
     destinationLongitude: Number,
     destinationLatitude: Number,
 
