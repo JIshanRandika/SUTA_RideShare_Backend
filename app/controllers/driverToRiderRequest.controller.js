@@ -41,7 +41,7 @@ exports.DriverToRiderRequest = (req, res) => {
     });
 };
 
-//get all request
+//sent requests
 exports.yourRequestsToRiders = (req, res) => {
     DriverToRiderRequest.find({'driverEmail':req.body.email}).select('-__v').then(itemInfos => {
         res.status(200).json(itemInfos);
@@ -55,6 +55,27 @@ exports.yourRequestsToRiders = (req, res) => {
         });
     });
 };
+
+
+// get rider received requests
+
+exports.riderReceivedRequestsForEach = (req, res) => {
+    DriverToRiderRequest.find({'riderEmail':req.body.email,'originDateTime':req.body.originDateTime}).select('-__v').then(itemInfos => {
+        res.status(200).json(itemInfos);
+        // console.log(req.body.originDateTime)
+    }).catch(error => {
+        // log on console
+        console.log(error);
+
+        res.status(500).json({
+            message: "Error!",
+            error: error
+        });
+    });
+};
+
+
+
 
 
 //update status
