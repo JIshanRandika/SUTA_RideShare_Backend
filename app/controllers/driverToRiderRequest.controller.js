@@ -9,7 +9,9 @@ exports.addADriverToRiderRequest = (req, res) => {
         driverName: req.body.driverName,
         originDateTime: req.body.originDateTime,
         vehicleNumber: req.body.vehicleNumber,
-        status: req.body.status
+        status: req.body.status,
+
+        userToken: req.body.userToken
     });
     console.log('run')
     // Save a order in the MongoDB
