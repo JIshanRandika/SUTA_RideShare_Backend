@@ -7,7 +7,9 @@ const driverToRiderRequest = mongoose.Schema({
     driverName: String,
     originDateTime: String,
     vehicleNumber: String,
-    status: String
+    status: String,
+
+    userToken:String
 
 
 
