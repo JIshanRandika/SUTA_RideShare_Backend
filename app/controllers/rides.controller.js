@@ -15,7 +15,9 @@ exports.addARide = (req, res) => {
         neededSeats: req.body.neededSeats,
         contactNumber: req.body.contactNumber,
         username: req.body.username,
-        email: req.body.email
+        email: req.body.email,
+
+        userToken: req.body.userToken
     });
     console.log('run')
     // Save a order in the MongoDB
