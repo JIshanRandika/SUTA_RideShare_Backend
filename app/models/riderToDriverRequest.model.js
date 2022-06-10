@@ -8,7 +8,9 @@ const riderToDriverRequestSchema = mongoose.Schema({
     neededSeats: Number,
     originDateTime: String,
     vehicleNumber: String,
-    status: String
+    status: String,
+
+    userToken:String
 
 
 });
