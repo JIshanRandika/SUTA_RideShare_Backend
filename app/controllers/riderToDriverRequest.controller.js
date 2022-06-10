@@ -39,7 +39,7 @@ exports.RiderToDriverRequests = (req, res) => {
     });
 };
 
-//get your request
+//get your request to drivers
 exports.yourRequestsToDrivers = (req, res) => {
     RiderToDriverRequest.find({'riderEmail':req.body.email}).select('-__v').then(itemInfos => {
         res.status(200).json(itemInfos);

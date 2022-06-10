@@ -23,9 +23,27 @@ exports.addADriverToRiderRequest = (req, res) => {
     });
 };
 
+
+
+
 //get all request
 exports.DriverToRiderRequest = (req, res) => {
     DriverToRiderRequest.find().select('-__v').then(itemInfos => {
+        res.status(200).json(itemInfos);
+    }).catch(error => {
+        // log on console
+        console.log(error);
+
+        res.status(500).json({
+            message: "Error!",
+            error: error
+        });
+    });
+};
+
+//get all request
+exports.yourRequestsToRiders = (req, res) => {
+    DriverToRiderRequest.find({'driverEmail':req.body.email}).select('-__v').then(itemInfos => {
         res.status(200).json(itemInfos);
     }).catch(error => {
         // log on console
