@@ -3,17 +3,19 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+
+const dbConfig = require('./app/config/mongodb.config.js');
 const mongoose = require('mongoose');
 
-const connection = require("./db");
-const userRoutes = require("./routes/users");
-const authRoutes = require("./routes/auth");
-const logoutRoutes = require("./routes/logout");
-const notification = require("./routes/notification");
+// const connection = require("./db");
+const userRoutes = require("./app/routes/users");
+const authRoutes = require("./app/routes/auth");
+const logoutRoutes = require("./app/routes/logout");
+const notification = require("./app/routes/notification");
 
 
 // database connection
-connection();
+// connection();
 
 mongoose.Promise = global.Promise;
 
@@ -30,11 +32,22 @@ app.use("/api/auth", authRoutes);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/notification", notification);
 
-require('./routes/drives.router')(app)
-require('./routes/rides.router')(app);
-require('./routes/riderToDriverRequest.router')(app);
-require('./routes/driverToRiderRequest.router')(app);
-require('./routes/updateUserToken.routes')(app);
+require('./app/routes/drives.router')(app)
+require('./app/routes/rides.router')(app);
+require('./app/routes/riderToDriverRequest.router')(app);
+require('./app/routes/driverToRiderRequest.router')(app);
+require('./app/routes/updateUserToken.routes')(app);
+
+mongoose.connect(dbConfig.url, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(async () => {
+        console.log("Successfully connected to MongoDB.");
+
+
+    }).catch(err => {
+    console.log('Could not connect to MongoDB.');
+    process.exit();
+});
+
 
 // let port = process.env.PORT || 8080;
 const PORT = process.env.PORT || 8080;
