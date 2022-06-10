@@ -31,7 +31,9 @@ exports.addADrive = (req, res) => {
 
 //get all drives
 exports.drives = (req, res) => {
+
     Drive.find().select('-__v').then(itemInfos => {
+        console.log('ishan');
         res.status(200).json(itemInfos);
     }).catch(error => {
         // log on console
@@ -46,7 +48,9 @@ exports.drives = (req, res) => {
 
 // get your drives
 exports.yourDrives =  (req, res) => {
-    Drive.find({'email':req.body.email}).select(['username']).then(itemInfos => {
+    console.log('ishan');
+    Drive.find({'email':req.body.email}).select('-__v').then(itemInfos => {
+        console.log('ishan');
         res.status(200).json(itemInfos);
     }).catch(error => {
         // log on console
@@ -57,6 +61,10 @@ exports.yourDrives =  (req, res) => {
             error: error
         });
     });
+
+
+
+
     // let itemList = await Drive.find({email: req.body.email}).select(['originDateTime', 'originLatitude', 'email']);
     // JSON.stringify(itemList)
 
