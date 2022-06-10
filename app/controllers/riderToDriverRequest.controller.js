@@ -54,6 +54,26 @@ exports.yourRequestsToDrivers = (req, res) => {
     });
 };
 
+// get driver received requests
+
+exports.driverReceivedRequestsForEach = (req, res) => {
+    RiderToDriverRequest.find({'driverEmail':req.body.email,'originDateTime':req.body.originDateTime}).select('-__v').then(itemInfos => {
+        res.status(200).json(itemInfos);
+        // console.log(req.body.originDateTime)
+    }).catch(error => {
+        // log on console
+        console.log(error);
+
+        res.status(500).json({
+            message: "Error!",
+            error: error
+        });
+    });
+};
+
+
+
+
 //update status
 
 exports.updateRiderToDriverRequests = (req, res) => {
