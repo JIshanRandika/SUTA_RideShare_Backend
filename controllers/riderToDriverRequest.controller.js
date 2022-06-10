@@ -4,9 +4,12 @@ const RiderToDriverRequest = require('../models/riderToDriverRequest.model.js');
 exports.addARiderToDriverRequest = (req, res) => {
     const drive = new RiderToDriverRequest({
         riderEmail: req.body.riderEmail,
+        riderName: req.body.riderName,
         driverEmail: req.body.driverEmail,
+        driverName: req.body.driverName,
         neededSeats: req.body.neededSeats,
         originDateTime: req.body.originDateTime,
+        vehicleNumber: req.body.vehicleNumber,
         status: req.body.status
     });
     console.log('run')
