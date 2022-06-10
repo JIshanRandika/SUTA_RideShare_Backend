@@ -13,7 +13,9 @@ const drivesSchema = mongoose.Schema({
     VehicleNumber: String,
     contactNumber: String,
     username:String,
-    email:String
+    email:String,
+
+    userToken:String
 
 });
 
