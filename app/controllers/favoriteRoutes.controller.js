@@ -9,6 +9,7 @@ exports.addAFavouriteRoute = (req, res) => {
         destinationLongitude: req.body.destinationLongitude,
         destinationLatitude: req.body.destinationLatitude,
 
+        routeName: req.body.routeName,
         email: req.body.email,
 
     });
