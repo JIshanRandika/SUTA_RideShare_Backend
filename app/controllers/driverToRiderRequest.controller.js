@@ -107,3 +107,24 @@ exports.updateDriverToRiderRequest = (req, res) => {
         });
     });
 }
+
+// DELETE a request
+exports.deleteDriverToRiderRequests = (req, res) => {
+    let itemId = req.params.id
+
+    DriverToRiderRequest.findByIdAndRemove(itemId).select('-__v -_id')
+        .then(item => {
+            if(!item) {
+                res.status(404).json({
+                    message: "Does Not exist a item with id = " + itemId,
+                    error: "404",
+                });
+            }
+            res.status(200).json({});
+        }).catch(err => {
+        return res.status(500).send({
+            message: "Error -> Can NOT delete a item with id = " + itemId,
+            error: err.message
+        });
+    });
+};
