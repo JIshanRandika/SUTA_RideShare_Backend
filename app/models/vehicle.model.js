@@ -6,6 +6,7 @@ const vehicleSchema = mongoose.Schema({
     vehicleNumber: String,
     availableSeats: String,
     contactNumber: String,
+    email: String,
 
 });
 
