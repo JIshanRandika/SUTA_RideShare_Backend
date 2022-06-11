@@ -1,8 +1,8 @@
-const Drive = require('../models/rides.model');
+const Ride = require('../models/rides.model');
 
 //add a ride
 exports.addARide = (req, res) => {
-    const drive = new Drive({
+    const drive = new Ride({
         originDateTime: req.body.originDateTime,
         originLongitude: req.body.originLongitude,
         originLatitude: req.body.originLatitude,
@@ -33,7 +33,7 @@ exports.addARide = (req, res) => {
 
 //get all rides
 exports.rides = (req, res) => {
-    Drive.find().select('-__v').then(itemInfos => {
+    Ride.find().select('-__v').then(itemInfos => {
         res.status(200).json(itemInfos);
     }).catch(error => {
         // log on console
@@ -49,7 +49,7 @@ exports.rides = (req, res) => {
 
 //get your rides
 exports.yourRides = (req, res) => {
-    Drive.find({'email':req.body.email}).select('-__v').then(itemInfos => {
+    Ride.find({'email':req.body.email}).select('-__v').then(itemInfos => {
         res.status(200).json(itemInfos);
     }).catch(error => {
         // log on console
@@ -63,3 +63,23 @@ exports.yourRides = (req, res) => {
 };
 
 
+// DELETE a Ride
+exports.deleteRide = (req, res) => {
+    let itemId = req.params.id
+
+    Ride.findByIdAndRemove(itemId).select('-__v -_id')
+        .then(item => {
+            if(!item) {
+                res.status(404).json({
+                    message: "Does Not exist a item with id = " + itemId,
+                    error: "404",
+                });
+            }
+            res.status(200).json({});
+        }).catch(err => {
+        return res.status(500).send({
+            message: "Error -> Can NOT delete a item with id = " + itemId,
+            error: err.message
+        });
+    });
+};
