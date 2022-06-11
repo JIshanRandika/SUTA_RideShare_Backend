@@ -7,6 +7,7 @@ module.exports = function(app) {
     app.put('/api/updateRiderToDriverRequests', riderToDriverRequest.updateRiderToDriverRequests);
     app.post('/api/yourRequestsToDrivers', riderToDriverRequest.yourRequestsToDrivers);
     app.post('/api/driverReceivedRequestsForEach', riderToDriverRequest.driverReceivedRequestsForEach);
-
+    app.delete('/api/deleteRiderToDriverRequests/:id', riderToDriverRequest.deleteRiderToDriverRequests);
 
 }
+
