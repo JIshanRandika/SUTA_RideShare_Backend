@@ -65,10 +65,30 @@ exports.yourDrives =  (req, res) => {
     });
 
 
-
-
     // let itemList = await Drive.find({email: req.body.email}).select(['originDateTime', 'originLatitude', 'email']);
     // JSON.stringify(itemList)
 
     // return res.status(200).send(itemList);
+};
+
+
+// DELETE a Drive
+exports.deleteDrive = (req, res) => {
+    let itemId = req.body.id
+
+    Drive.findByIdAndRemove(itemId).select('-__v -_id')
+        .then(item => {
+            if(!item) {
+                res.status(404).json({
+                    message: "Does Not exist a item with id = " + itemId,
+                    error: "404",
+                });
+            }
+            res.status(200).json({});
+        }).catch(err => {
+        return res.status(500).send({
+            message: "Error -> Can NOT delete a item with id = " + itemId,
+            error: err.message
+        });
+    });
 };
