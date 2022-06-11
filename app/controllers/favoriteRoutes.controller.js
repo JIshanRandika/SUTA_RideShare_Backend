@@ -24,3 +24,21 @@ exports.addAFavouriteRoute = (req, res) => {
         });
     });
 };
+
+
+// get your favorite routes
+exports.yourFavouriteRoutes =  (req, res) => {
+    console.log('ishan');
+    yourFavouriteRoutes.find({'email':req.body.email}).select('-__v').then(itemInfos => {
+        // console.log('ishan');
+        res.status(200).json(itemInfos);
+    }).catch(error => {
+        // log on console
+        console.log(error);
+
+        res.status(500).json({
+            message: "Error!",
+            error: error
+        });
+    });
+};
