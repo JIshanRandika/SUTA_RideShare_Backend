@@ -27,9 +27,9 @@ exports.addAFavouriteRoute = (req, res) => {
 
 
 // get your favorite routes
-exports.yourFavouriteRoutes =  (req, res) => {
+exports.yourFavoriteRoutes =  (req, res) => {
     console.log('ishan');
-    yourFavouriteRoutes.find({'email':req.body.email}).select('-__v').then(itemInfos => {
+    yourFavoriteRoutes.find({'email':req.body.email}).select('-__v').then(itemInfos => {
         // console.log('ishan');
         res.status(200).json(itemInfos);
     }).catch(error => {
