@@ -74,7 +74,7 @@ exports.yourDrives =  (req, res) => {
 
 // DELETE a Drive
 exports.deleteDrive = (req, res) => {
-    let itemId = req.body.id
+    let itemId = req.params.id
 
     Drive.findByIdAndRemove(itemId).select('-__v -_id')
         .then(item => {
