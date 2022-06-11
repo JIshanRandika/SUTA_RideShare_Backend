@@ -4,7 +4,7 @@ const vehicleSchema = mongoose.Schema({
     title: String,
     type: String,
     vehicleNumber: String,
-    availableSeats: String,
+    availableSeats: Number,
     contactNumber: String,
     email: String,
 
