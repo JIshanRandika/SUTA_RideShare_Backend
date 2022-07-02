@@ -48,6 +48,23 @@ exports.rides = (req, res) => {
 };
 
 
+// get rides in group
+exports.ridesInGroup = (req, res) => {
+    Ride.find({'groupID': req.body.groupID}).select('-__v').then(itemInfos => {
+        res.status(200).json(itemInfos);
+    }).catch(error => {
+        // log on console
+        console.log(error);
+
+        res.status(500).json({
+            message: "Error!",
+            error: error
+        });
+    });
+};
+
+
+
 //get your rides
 exports.yourRides = (req, res) => {
     Ride.find({'email':req.body.email}).select('-__v').then(itemInfos => {
