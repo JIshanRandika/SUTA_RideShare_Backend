@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
 		const hashPassword = await bcrypt.hash(req.body.password, salt);
 
 		await new User({ ...req.body, password: hashPassword }).save();
-		return res.status(201).send({ message: "User created successfully",name:req.body.name,email:req.body.email });
+		return res.status(201).send({ message: "User created successfully",name:req.body.name,email:req.body.email,groupID:req.body.groupID });
 	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}

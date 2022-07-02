@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
 			return res.status(401).send({ message: "Invalid Email or Password" });
 
 		const token = user.generateAuthToken();
-		res.status(200).send({ data: token, message: "logged in successfully", name:user.name, email:req.body.email,deviseToken:user.deviseToken });
+		res.status(200).send({ data: token, message: "logged in successfully", name:user.name, email:req.body.email,deviseToken:user.deviseToken, groupID: user.groupID });
 	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error"});
 	}
