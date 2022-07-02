@@ -49,6 +49,22 @@ exports.drives = (req, res) => {
     });
 };
 
+// get drives in group
+exports.drivesInGroup =  (req, res) => {
+    Drive.find({'groupID': req.body.groupID}).select('-__v').then(itemInfos => {
+        res.status(200).json(itemInfos);
+    }).catch(error => {
+        // log on console
+        console.log(error);
+
+        res.status(500).json({
+            message: "Error!",
+            error: error
+        });
+    });
+}
+
+
 // get your drives
 exports.yourDrives =  (req, res) => {
     console.log('ishan');
