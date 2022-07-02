@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
 		if (user)
 			return res
 				// .status(409)
-				.status(401)
+				.status(201)
 				.send({ message: "User with given email already Exist!" });
 
 		const salt = await bcrypt.genSalt(Number(process.env.SALT));
