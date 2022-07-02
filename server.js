@@ -40,6 +40,7 @@ require('./app/routes/updateUserToken.routes')(app);
 require('./app/routes/user.router')(app);
 require('./app/routes/favouriteRoutes.router')(app);
 require('./app/routes/vehicle.router')(app);
+require('./app/routes/group.router')(app);
 
 mongoose.connect(dbConfig.url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(async () => {
