@@ -4,6 +4,7 @@ const userSchema = mongoose.Schema({
     name: String,
     email: String,
     password: String,
+    groupID: String,
     deviseToken: String,
 
 });

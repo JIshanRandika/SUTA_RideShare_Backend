@@ -9,6 +9,7 @@ const favoriteRoutesSchema = mongoose.Schema({
     destinationLatitude: Number,
 
     routeName: String,
+    groupID: String,
     email: String
 
 });

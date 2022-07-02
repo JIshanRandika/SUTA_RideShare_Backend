@@ -12,6 +12,7 @@ exports.addARiderToDriverRequest = (req, res) => {
         vehicleNumber: req.body.vehicleNumber,
         status: req.body.status,
 
+        groupID: req.body.groupID,
         userToken: req.body.userToken
     });
     console.log('run')

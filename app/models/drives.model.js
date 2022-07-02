@@ -15,6 +15,7 @@ const drivesSchema = mongoose.Schema({
     username:String,
     email:String,
 
+    groupID: String,
     userToken:String
 
 });

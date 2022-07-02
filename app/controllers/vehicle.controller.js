@@ -8,6 +8,7 @@ exports.addAVehicle = (req, res) => {
         vehicleNumber: req.body.vehicleNumber,
         availableSeats: req.body.availableSeats,
         contactNumber: req.body.contactNumber,
+        groupID: req.body.groupID,
         email: req.body.email
     });
     console.log('run')

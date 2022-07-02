@@ -17,6 +17,7 @@ exports.addARide = (req, res) => {
         username: req.body.username,
         email: req.body.email,
 
+        groupID: req.body.groupID,
         userToken: req.body.userToken
     });
     console.log('run')

@@ -10,6 +10,7 @@ const riderToDriverRequestSchema = mongoose.Schema({
     vehicleNumber: String,
     status: String,
 
+    groupID: String,
     userToken:String
 
 

@@ -11,6 +11,7 @@ exports.addAFavouriteRoute = (req, res) => {
 
         routeName: req.body.routeName,
         email: req.body.email,
+        groupID: req.body.groupID,
 
     });
     console.log('run')
