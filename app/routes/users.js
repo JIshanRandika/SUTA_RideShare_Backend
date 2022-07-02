@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User, validate } = require("../models/user");
-const { Group } = require("../models/group.model");
+const Group = require('../models/group.model');
 
 const bcrypt = require("bcrypt");
 
@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
 			return res
 				.status(409)
 				// .status(201)
-				.send({ message: "Group ID already Exist!" });
+				.send({ message: "Wrong Group ID" });
 
 		const salt = await bcrypt.genSalt(Number(process.env.SALT));
 		const hashPassword = await bcrypt.hash(req.body.password, salt);
