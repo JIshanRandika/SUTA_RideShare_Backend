@@ -10,6 +10,14 @@ router.post("/", async (req, res) => {
 		if (error)
 			return res.status(400).send({ message: error.details[0].message });
 
+		const group = await Group.findOne({ groupID: req.body.groupID });
+		if (!group)
+			return res
+				// .status(409)
+				.status(201)
+				.send({ message: "Wrong Group ID" });
+
+
 		const user = await User.findOne({ email: req.body.email });
 		if (user)
 			return res
@@ -18,12 +26,7 @@ router.post("/", async (req, res) => {
 				.send({ message: "User with given email already Exist!" });
 
 
-		const group = await Group.findOne({ groupID: req.body.groupID });
-		if (!group)
-			return res
-				// .status(409)
-				.status(201)
-				.send({ message: "Wrong Group ID" });
+
 
 		const salt = await bcrypt.genSalt(Number(process.env.SALT));
 		const hashPassword = await bcrypt.hash(req.body.password, salt);
