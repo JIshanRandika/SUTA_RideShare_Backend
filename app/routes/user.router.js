@@ -4,6 +4,6 @@ module.exports = function(app) {
 
     app.post('/api/userToken', user.userToken);
     app.put('/api/updateUserGroup', user.updateUserGroup);
-
+    app.post('/api/usersInGroup', user.usersInGroup);
 
 }

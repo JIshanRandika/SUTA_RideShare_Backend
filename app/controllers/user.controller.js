@@ -55,3 +55,20 @@ exports.updateUserGroup = (req, res) => {
         });
     });
 }
+
+// get users in group
+exports.usersInGroup =  (req, res) => {
+    // console.log('ishan');
+    Vehicle.find({'groupID':req.body.groupID}).select('-__v').then(itemInfos => {
+        // console.log('ishan');
+        res.status(200).json(itemInfos);
+    }).catch(error => {
+        // log on console
+        console.log(error);
+
+        res.status(500).json({
+            message: "Error!",
+            error: error
+        });
+    });
+};
