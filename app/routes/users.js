@@ -33,8 +33,11 @@ router.post("/", async (req, res) => {
 
 		await new User({ ...req.body, password: hashPassword }).save();
 		return res.status(201).send({ message: "User created successfully",name:req.body.name,email:req.body.email,groupID:req.body.groupID });
+
+		res.status(201).send({ message: "Password incorrect" });
+
 	} catch (error) {
-		res.status(201).send({ message: "Internal Server Error" });
+		return res.status(201).send({ message: "Internal Server Error" });
 		// res.status(500).send({ message: "Internal Server Error" });
 	}
 });
