@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Group = require('../models/group.model');
 
 // get user Token
 exports.userToken =  (req, res) => {
@@ -20,8 +21,17 @@ exports.userToken =  (req, res) => {
 
 //update user group
 
+
 exports.updateUserGroup = (req, res) => {
     // Find order and update it
+
+    // const group = Group.findOne({ groupID: req.body.groupID });
+    // if (!group)
+    //     return res
+    //         // .status(409)
+    //         .status(201)
+    //         .send({ message: "Wrong Group ID" });
+
     User.User.findOneAndUpdate(
         { email: req.body.email },
         {
