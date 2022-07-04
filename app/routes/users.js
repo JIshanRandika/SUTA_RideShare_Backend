@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
 		if (error)
-			return res.status(400).send({ message: error.details[0].message });
+			return res.status(201).send({ message: error.details[0].message });
 
 		const group = await Group.findOne({ groupID: req.body.groupID });
 		if (!group)
@@ -34,11 +34,11 @@ router.post("/", async (req, res) => {
 		await new User({ ...req.body, password: hashPassword }).save();
 		return res.status(201).send({ message: "User created successfully",name:req.body.name,email:req.body.email,groupID:req.body.groupID });
 
-		res.status(201).send({ message: "Password incorrect" });
+		// res.status(201).send({ message: "Password incorrect" });
 
 	} catch (error) {
-		return res.status(201).send({ message: "Internal Server Error" });
-		// res.status(500).send({ message: "Internal Server Error" });
+		// return res.status(201).send({ message: "Internal Server Error" });
+		res.status(500).send({ message: "Internal Server Error" });
 	}
 });
 
