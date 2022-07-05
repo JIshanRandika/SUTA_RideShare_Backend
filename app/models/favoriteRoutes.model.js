@@ -10,6 +10,10 @@ const favoriteRoutesSchema = mongoose.Schema({
 
     routeName: String,
     groupID: String,
+
+    startLocation:String,
+    endLocation:String,
+
     email: String
 
 });

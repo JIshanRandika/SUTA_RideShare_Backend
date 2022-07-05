@@ -11,6 +11,10 @@ exports.addAFavouriteRoute = (req, res) => {
 
         routeName: req.body.routeName,
         email: req.body.email,
+
+        startLocation:req.body.startLocation,
+        endLocation:req.body.endLocation,
+
         groupID: req.body.groupID,
 
     });
