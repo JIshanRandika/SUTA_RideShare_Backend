@@ -15,6 +15,10 @@ const ridesSchema = mongoose.Schema({
     email:String,
 
     groupID: String,
+
+    startLocation:String,
+    endLocation:String,
+
     userToken:String
 
 });

@@ -18,6 +18,10 @@ exports.addARide = (req, res) => {
         email: req.body.email,
 
         groupID: req.body.groupID,
+
+        startLocation:req.body.startLocation,
+        endLocation:req.body.endLocation,
+
         userToken: req.body.userToken
     });
     console.log('run')
