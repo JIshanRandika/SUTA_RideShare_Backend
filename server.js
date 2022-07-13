@@ -44,7 +44,10 @@ require('./app/routes/drives.router')(app)
 require('./app/routes/rides.router')(app);
 require('./app/routes/riderToDriverRequest.router')(app);
 require('./app/routes/driverToRiderRequest.router')(app);
+
 require('./app/routes/updateUserToken.routes')(app);
+require('./app/routes/updateGoogleUserToken.routes')(app);
+
 require('./app/routes/user.router')(app);
 require('./app/routes/favouriteRoutes.router')(app);
 require('./app/routes/vehicle.router')(app);

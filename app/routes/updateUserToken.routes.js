@@ -1,4 +1,4 @@
-const updateUserToken = require("../controllers/updateUserToken,controller");
+const updateUserToken = require("../controllers/updateUserToken.controller");
 
 module.exports = function(app) {
 
