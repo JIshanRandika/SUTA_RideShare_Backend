@@ -1,9 +1,9 @@
-const User = require('../models/user');
+const GoogleUser = require('../models/googleUser');
 
 // get user Token
-exports.userToken =  (req, res) => {
+exports.googleUserToken =  (req, res) => {
     console.log('ishan');
-    User.User.find({'email': req.body.email}).select('deviseToken').then(itemInfos => {
+    GoogleUser.find({'email': req.body.email}).select('deviseToken').then(itemInfos => {
         // console.log('ishan');
         res.status(200).json(itemInfos);
     }).catch(error => {
@@ -21,7 +21,7 @@ exports.userToken =  (req, res) => {
 //update user group
 
 
-exports.updateUserGroup = (req, res) => {
+exports.updateGoogleUserGroup = (req, res) => {
     // Find order and update it
 
     // const group = Group.findOne({ groupID: req.body.groupID });
@@ -31,7 +31,7 @@ exports.updateUserGroup = (req, res) => {
     //         .status(201)
     //         .send({ message: "Wrong Group ID" });
 
-    User.User.findOneAndUpdate(
+    GoogleUser.findOneAndUpdate(
         { email: req.body.email },
         {
             groupID: req.body.groupID,
@@ -56,9 +56,9 @@ exports.updateUserGroup = (req, res) => {
 }
 
 // get users in group
-exports.usersInGroup =  (req, res) => {
+exports.googleUsersInGroup =  (req, res) => {
     // console.log('ishan');
-    User.User.find({'groupID':req.body.groupID}).select('-__v').then(itemInfos => {
+    GoogleUser.find({'groupID':req.body.groupID}).select('-__v').then(itemInfos => {
         // console.log('ishan');
         res.status(200).json(itemInfos);
     }).catch(error => {
