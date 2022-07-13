@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 
 // const connection = require("./db");
 const userRoutes = require("./app/routes/users");
+const googleUserRoutes = require("./app/routes/googleUsers");
+
 const authRoutes = require("./app/routes/auth");
 const logoutRoutes = require("./app/routes/logout");
 const notification = require("./app/routes/notification");
@@ -28,6 +30,8 @@ app.use(cors());
 
 // routes
 app.use("/api/users", userRoutes);
+app.use("/api/googleUsers", googleUserRoutes);
+
 app.use("/api/auth", authRoutes);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/notification", notification);
