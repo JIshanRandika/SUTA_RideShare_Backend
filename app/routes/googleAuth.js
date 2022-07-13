@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
 
         // const token ='a'
 
-        res.status(200).send({ data: token, message: "logged in successfully", name:googleUser.name, email:req.body.email,deviseToken:googleUser.deviseToken, groupID: googleUser.groupID });
+        res.status(200).send({ data: token, message: "logged in successfully", picture:req.body.picture, name:googleUser.name, email:req.body.email,deviseToken:googleUser.deviseToken, groupID: googleUser.groupID });
     } catch (error) {
         res.status(500).send({ message: "Internal Server Error"});
     }
