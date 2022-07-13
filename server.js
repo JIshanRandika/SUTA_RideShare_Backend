@@ -12,6 +12,8 @@ const userRoutes = require("./app/routes/users");
 const googleUserRoutes = require("./app/routes/googleUsers");
 
 const authRoutes = require("./app/routes/auth");
+const googleAuthRoutes = require("./app/routes/googleAuth");
+
 const logoutRoutes = require("./app/routes/logout");
 const notification = require("./app/routes/notification");
 
@@ -33,6 +35,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/googleUsers", googleUserRoutes);
 
 app.use("/api/auth", authRoutes);
+app.use("/api/googleAuth", googleAuthRoutes);
+
 app.use("/api/logout", logoutRoutes);
 app.use("/api/notification", notification);
 
