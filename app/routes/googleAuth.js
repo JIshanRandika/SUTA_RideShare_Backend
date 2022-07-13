@@ -25,7 +25,8 @@ router.post("/", async (req, res) => {
         //     // return res.status(401).send({ message: "Invalid Email or Password" });
         //     return res.status(201).send({ message: "Invalid Password" });
 
-        const token = googleUser.generateAuthToken();
+        // const token = googleUser.generateAuthToken();
+
         res.status(200).send({ data: token, message: "logged in successfully", name:googleUser.name, email:req.body.email,deviseToken:googleUser.deviseToken, groupID: googleUser.groupID });
     } catch (error) {
         res.status(500).send({ message: "Internal Server Error"});
