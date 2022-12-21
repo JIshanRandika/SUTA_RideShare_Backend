@@ -12,10 +12,11 @@ router.post("/", async (req, res) => {
         //     // return res.status(400).send({ message: error.details[0].message });
         //     return res.status(201).send({ message: error.details[0].message });
 
-        const googleUser = await GoogleUser.findOne({ email: req.body.email });
-        if (!googleUser)
+        //a const googleUser = await GoogleUser.findOne({ email: req.body.email });
+        //a if (!googleUser)
+
             // return res.status(401).send({ message: "Invalid Email or Password" });
-            return res.status(201).send({ message: "Invalid Email" });
+            //a return res.status(201).send({ message: "Invalid Email" });
 
         // const validPassword = await bcrypt.compare(
         //     req.body.password,
