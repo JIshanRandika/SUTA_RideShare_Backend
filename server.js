@@ -35,6 +35,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/googleUsers", googleUserRoutes);
 
 app.use("/api/auth", authRoutes);
+
 app.use("/api/googleAuth", googleAuthRoutes);
 
 app.use("/api/logout", logoutRoutes);

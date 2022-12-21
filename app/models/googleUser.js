@@ -6,7 +6,6 @@ const googleUserSchema = mongoose.Schema({
     email: String,
     groupID: String,
     deviseToken: String,
-
 });
 
 googleUserSchema.methods.generateAuthToken = function () {
