@@ -37,6 +37,7 @@ app.use("/api/googleUsers", googleUserRoutes);
 app.use("/api/auth", authRoutes);
 
 app.use("/api/googleAuth", googleAuthRoutes);
+// require('./app/routes/googleAuth')(app)
 
 app.use("/api/logout", logoutRoutes);
 app.use("/api/notification", notification);
