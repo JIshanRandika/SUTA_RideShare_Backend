@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { User } = require("../models/user");
+// const { User } = require("../models/user");
 const GoogleUser = require('../models/googleUser');
 
-const bcrypt = require("bcrypt");
-const Joi = require("joi");
+// const bcrypt = require("bcrypt");
+// const Joi = require("joi");
 
 router.post("/", async (req, res) => {
     try {
@@ -26,11 +26,12 @@ router.post("/", async (req, res) => {
         //     // return res.status(401).send({ message: "Invalid Email or Password" });
         //     return res.status(201).send({ message: "Invalid Password" });
 
-        const token = googleUser.generateAuthToken();
+        // const token = googleUser.generateAuthToken();
 
         // const token ='a'
 
-        res.status(200).send({ data: token, message: "logged in successfully", picture:req.body.picture, name:googleUser.name, email:req.body.email,deviseToken:googleUser.deviseToken, groupID: googleUser.groupID });
+        // res.status(200).send({ data: token, message: "logged in successfully", picture:req.body.picture, name:googleUser.name, email:req.body.email,deviseToken:googleUser.deviseToken, groupID: googleUser.groupID });
+        res.status(200).send({ message: "logged in successfully", picture:req.body.picture, name:googleUser.name, email:req.body.email,deviseToken:googleUser.deviseToken, groupID: googleUser.groupID });
     } catch (error) {
         res.status(500).send({ message: "Internal Server Error"});
     }
